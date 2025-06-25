@@ -79,7 +79,6 @@ Dit testplan heeft als doel om te evalueren hoe goed verschillende Windows-brows
 | TC-02t | `<prosody volume="x-loud">` | Extra luid | Zeer hoog volume |
 | TC-02u | `<prosody volume="+6dB">` | 6dB luider | Verhoogd volume |
 | TC-02v | `<prosody volume="-6dB">` | 6dB zachter | Verlaagd volume |
-| TC-02w | Gecombineerd | Rate + pitch + volume samen | Alle attributen hoorbaar |
 
 #### Emphasis Element Tests
 
