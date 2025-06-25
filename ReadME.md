@@ -114,9 +114,9 @@ Per test:
 
 ### 6. Resultaten
 
-**PC/Laptop: Windows 11 en MacOS 14.5**
+#### PC/Laptop: Windows 11 en MacOS 14.5
 
-#### Break Element Attributen (Testcases TC-01a t/m TC-01j)
+##### **Break Element Attributen (Testcases TC-01a t/m TC-01j)**
 
 | Browser | `time="250ms"` | `time="500ms"` | `time="1s"` | `time="2s"` | `strength="none"` | `strength="x-weak"` | `strength="weak"` | `strength="medium"` | `strength="strong"` | `strength="x-strong"` |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -127,7 +127,7 @@ Per test:
 | Chromium - MacOS 14.5 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Firefox - MacOS 14.5 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
-#### Prosody Element Attributen (Testcases TC-02a t/m TC-02v)
+##### **Prosody Element Attributen (Testcases TC-02a t/m TC-02v)**
 
 | Browser | `rate="x-slow"` | `rate="slow"` | `rate="medium"` | `rate="fast"` | `rate="x-fast"` | `rate="50%"` | `rate="200%"` | `pitch="x-low"` | `pitch="low"` | `pitch="medium"` | `pitch="high"` | `pitch="x-high"` | `pitch="+50%"` | `pitch="-20%"` |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -147,7 +147,7 @@ Per test:
 | Chromium - MacOS 14.5 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Firefox - MacOS 14.5 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
-#### Emphasis Element Attributen (Testcases TC-03a t/m TC-03e)
+##### **Emphasis Element Attributen (Testcases TC-03a t/m TC-03e)**
 
 | Browser | `level="none"` | `level="reduced"` | `level="moderate"` | `level="strong"` | Default (no level) |
 | --- | --- | --- | --- | --- | --- |
@@ -158,7 +158,7 @@ Per test:
 | Chromium - MacOS 14.5 | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Firefox - MacOS 14.5 | ❌ | ❌ | ❌ | ❌ | ❌ |
 
-#### Opmerkingen per Browser
+##### **Opmerkingen per Browser**
 
 | Browser | Opmerkingen |
 | --- | --- |
@@ -169,9 +169,9 @@ Per test:
 | Chromium - MacOS 14.5 | Volledige ondersteuning voor break en prosody elementen. Alle time/strength breaks werken. Alle rate en volume attributen functioneren correct. Emphasis wordt niet ondersteund. |
 | Firefox - MacOS 14.5 | Volledige ondersteuning voor break en prosody elementen. Alle time/strength breaks werken. Alle rate en volume attributen functioneren correct. Emphasis wordt niet ondersteund. |
 
-**Android 14 Phone**
+#### Android 14 Phone
 
-#### Break Element Attributen (Testcases TC-01a t/m TC-01j)
+##### **Break Element Attributen (Testcases TC-01a t/m TC-01j)**
 
 | Browser | `time="250ms"` | `time="500ms"` | `time="1s"` | `time="2s"` | `strength="none"` | `strength="x-weak"` | `strength="weak"` | `strength="medium"` | `strength="strong"` | `strength="x-strong"` |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -179,10 +179,10 @@ Per test:
 | Edge | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Firefox | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
-#### Prosody Element Attributen (Testcases TC-02a t/m TC-02v)
+##### **Prosody Element Attributen (Testcases TC-02a t/m TC-02v)**
 
 | Browser | `rate="x-slow"` | `rate="slow"` | `rate="medium"` | `rate="fast"` | `rate="x-fast"` | `rate="50%"` | `rate="200%"` | `pitch="x-low"` | `pitch="low"` | `pitch="medium"` | `pitch="high"` | `pitch="x-high"` | `pitch="+50%"` | `pitch="-20%"` |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Chromium | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Edge | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Firefox | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
@@ -193,7 +193,7 @@ Per test:
 | Edge | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Firefox | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 
-#### Emphasis Element Attributen (Testcases TC-03a t/m TC-03e)
+##### **Emphasis Element Attributen (Testcases TC-03a t/m TC-03e)**
 
 | Browser | `level="none"` | `level="reduced"` | `level="moderate"` | `level="strong"` | Default (no level) |
 | --- | --- | --- | --- | --- | --- |
@@ -204,7 +204,7 @@ Per test:
 | Chromium - MacOS 14.5 | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Firefox - MacOS 14.5 | ❌ | ❌ | ❌ | ❌ | ❌ |
 
-#### Opmerkingen Android
+##### **Opmerkingen Android**
 
 | Browser | Opmerkingen |
 | --- | --- |
