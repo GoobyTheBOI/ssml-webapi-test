@@ -153,18 +153,6 @@
             <button onclick="testEmphasis('')">Default emphasis</button>
         </div>
 
-        <!-- Complex Combinations -->
-        <div class="test-section">
-            <h2 class="text-2xl font-semibold mb-4">Complex Combinations</h2>
-
-            <button onclick="testComplexCombination1()">Story with all
-                elements</button>
-            <button onclick="testComplexCombination2()">Technical
-                announcement</button>
-            <button onclick="testComplexCombination3()">Emotional
-                speech</button>
-        </div>
-
         <!-- Display area for SSML -->
         <div id="ssmlDisplay" class="ssml-text" style="display: none;"></div>
     </div>
@@ -213,45 +201,6 @@
             } else {
                 ssml = `<speak>Normale tekst met <emphasis level="${level}">nadruk niveau ${level}</emphasis> erin.</speak>`;
             }
-            speakSSML(ssml);
-        }
-
-        function testComplexCombination1() {
-            const ssml = `<speak>
-                <emphasis level="strong">Welkom</emphasis> bij onze demonstratie.
-                <break time="500ms"/>
-                We gaan nu <prosody rate="slow">langzaam</prosody> beginnen.
-                <break strength="medium"/>
-                Daarna wordt het <prosody rate="fast" pitch="high">sneller en hoger</prosody>.
-                <break time="1s"/>
-                En we eindigen met <emphasis level="strong"><prosody volume="loud">krachtige nadruk</prosody></emphasis>!
-            </speak>`;
-            speakSSML(ssml);
-        }
-
-        function testComplexCombination2() {
-            const ssml = `<speak>
-                <emphasis level="moderate">Technische aankondiging:</emphasis>
-                <break strength="strong"/>
-                De server zal <prosody rate="slow" pitch="low">over vijf minuten</prosody> worden herstart.
-                <break time="800ms"/>
-                <emphasis level="strong">Sla uw werk op</emphasis> voordat dit gebeurt.
-                <break strength="weak"/>
-                <prosody volume="soft">Bedankt voor uw begrip.</prosody>
-            </speak>`;
-            speakSSML(ssml);
-        }
-
-        function testComplexCombination3() {
-            const ssml = `<speak>
-                <prosody rate="x-slow" pitch="low" volume="soft">Ik ben</prosody>
-                <break time="300ms"/>
-                <emphasis level="moderate">heel</emphasis>
-                <break time="200ms"/>
-                <prosody rate="fast" pitch="high" volume="loud"><emphasis level="strong">blij</emphasis></prosody>
-                <break time="500ms"/>
-                <prosody rate="medium" pitch="medium">om hier te zijn.</prosody>
-            </speak>`;
             speakSSML(ssml);
         }
     </script>

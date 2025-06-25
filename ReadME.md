@@ -29,20 +29,67 @@ Dit testplan heeft als doel om te evalueren hoe goed verschillende Windows-brows
 
 **Benodigdheden:**
 
-- Windows-pc en Macbook
+- Windows-pc, Macbook en Android-telefoon
 - Laatste versies van alle relevante browsers
-- DevTools toegang (F12 → Console)
+- **Browser**: DevTools toegang (F12 → Console)
 - Console-scripts (geleverd in bijlage A)
 
 ---
 
 ### 4. Testcases
 
+#### Break Element Tests
+
 | Test ID | SSML-tag | Beschrijving | Verwachte Resultaat |
 | --- | --- | --- | --- |
-| TC-01 | `<break>` | Pauze van 500ms tussen 2 zinnen | Tijdmeting toont ≥500ms tussen start/end |
-| TC-02 | `<emphasis>` | Emphasis op woord 'belangrijk' | Hoorbare nadruk (intonatie) |
-| TC-03 | `<prosody>` | Volume omhoog en langzamer spreken | Volume hoger, tempo trager |
+| TC-01a | `<break time="250ms">` | Pauze van 250ms tussen zinnen | Hoorbare pauze van ~250ms |
+| TC-01b | `<break time="500ms">` | Pauze van 500ms tussen zinnen | Hoorbare pauze van ~500ms |
+| TC-01c | `<break time="1s">` | Pauze van 1 seconde tussen zinnen | Hoorbare pauze van ~1 seconde |
+| TC-01d | `<break time="2s">` | Pauze van 2 seconden tussen zinnen | Hoorbare pauze van ~2 seconden |
+| TC-01e | `<break strength="none">` | Geen pauze | Geen hoorbare pauze |
+| TC-01f | `<break strength="x-weak">` | Extra zwakke pauze | Zeer korte pauze |
+| TC-01g | `<break strength="weak">` | Zwakke pauze | Korte pauze |
+| TC-01h | `<break strength="medium">` | Gemiddelde pauze | Gemiddelde pauze |
+| TC-01i | `<break strength="strong">` | Sterke pauze | Lange pauze |
+| TC-01j | `<break strength="x-strong">` | Extra sterke pauze | Zeer lange pauze |
+
+#### Prosody Element Tests
+
+| Test ID | SSML-tag | Beschrijving | Verwachte Resultaat |
+| --- | --- | --- | --- |
+| TC-02a | `<prosody rate="x-slow">` | Extra langzaam spreken | Zeer traag tempo |
+| TC-02b | `<prosody rate="slow">` | Langzaam spreken | Traag tempo |
+| TC-02c | `<prosody rate="medium">` | Normaal tempo | Standaard spreeksnelheid |
+| TC-02d | `<prosody rate="fast">` | Snel spreken | Verhoogd tempo |
+| TC-02e | `<prosody rate="x-fast">` | Extra snel spreken | Zeer hoog tempo |
+| TC-02f | `<prosody rate="50%">` | 50% van normaal tempo | Halvering van snelheid |
+| TC-02g | `<prosody rate="200%">` | 200% van normaal tempo | Verdubbeling van snelheid |
+| TC-02h | `<prosody pitch="x-low">` | Extra lage toonhoogte | Zeer lage stem |
+| TC-02i | `<prosody pitch="low">` | Lage toonhoogte | Lage stem |
+| TC-02j | `<prosody pitch="medium">` | Normale toonhoogte | Standaard stem |
+| TC-02k | `<prosody pitch="high">` | Hoge toonhoogte | Hoge stem |
+| TC-02l | `<prosody pitch="x-high">` | Extra hoge toonhoogte | Zeer hoge stem |
+| TC-02m | `<prosody pitch="+50%">` | 50% hoger dan normaal | Verhoogde toonhoogte |
+| TC-02n | `<prosody pitch="-20%">` | 20% lager dan normaal | Verlaagde toonhoogte |
+| TC-02o | `<prosody volume="silent">` | Stilte | Geen geluid |
+| TC-02p | `<prosody volume="x-soft">` | Extra zacht | Zeer laag volume |
+| TC-02q | `<prosody volume="soft">` | Zacht | Laag volume |
+| TC-02r | `<prosody volume="medium">` | Normaal volume | Standaard volume |
+| TC-02s | `<prosody volume="loud">` | Luid | Hoog volume |
+| TC-02t | `<prosody volume="x-loud">` | Extra luid | Zeer hoog volume |
+| TC-02u | `<prosody volume="+6dB">` | 6dB luider | Verhoogd volume |
+| TC-02v | `<prosody volume="-6dB">` | 6dB zachter | Verlaagd volume |
+| TC-02w | Gecombineerd | Rate + pitch + volume samen | Alle attributen hoorbaar |
+
+#### Emphasis Element Tests
+
+| Test ID | SSML-tag | Beschrijving | Verwachte Resultaat |
+| --- | --- | --- | --- |
+| TC-03a | `<emphasis level="none">` | Geen nadruk | Normale intonatie |
+| TC-03b | `<emphasis level="reduced">` | Verminderde nadruk | Minder nadruk dan normaal |
+| TC-03c | `<emphasis level="moderate">` | Gemiddelde nadruk | Duidelijke nadruk |
+| TC-03d | `<emphasis level="strong">` | Sterke nadruk | Krachtige nadruk |
+| TC-03e | `<emphasis>` (default) | Standaard nadruk | Normale nadruk |
 
 ---
 
@@ -50,20 +97,27 @@ Dit testplan heeft als doel om te evalueren hoe goed verschillende Windows-brows
 
 Per test:
 
-1. Open `index.html` in een browser en druk op de knop "Speak Dutch Phrase"
-2. Druk op knop
-3. Observeer resultaat:
-    - Bij `<break>`: meet tijd tussen `onstart` en `onend`
-    - Bij `<emphasis>` en `<prosody>`: luister en beoordeel subjectief
-4. Noteer bevindingen in Resultatenmatrix
+1. Open `index.html` in een browser
+2. Klik op de gewenste testknop (bijv. "Break 250ms", "Rate: slow", "Level: strong")
+3. Observeer het resultaat:
+    - Bij `<break>`: luister naar de pauze en controleer timing in console (F12)
+    - Bij `<prosody>`: beoordeel hoorbare veranderingen in rate, pitch of volume
+    - Bij `<emphasis>`: luister naar eventuele nadruk of intonatieverandering
+    - Bij complexe combinaties: beoordeel of alle elementen correct worden uitgevoerd
+4. Noteer bevindingen in de Resultatenmatrix (✅ = werkt, ❌ = werkt niet)
+
+**Aandachtspunten tijdens testen:**
+- Console toont SSML-code en timing informatie
+- Let op verschil tussen SSML-interpretatie vs. letterlijk voorlezen van XML
+- Test elke knop individueel voor accurate resultaten
 
 ---
 
-### 6. Resultatenmatrix
+### 6. Resultaten
 
 **PC/Laptop: Windows 11 en MacOS 14.5**
 
-#### Break Element Attributen
+#### Break Element Attributen (Testcases TC-01a t/m TC-01j)
 
 | Browser | `time="250ms"` | `time="500ms"` | `time="1s"` | `time="2s"` | `strength="none"` | `strength="x-weak"` | `strength="weak"` | `strength="medium"` | `strength="strong"` | `strength="x-strong"` |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -74,7 +128,7 @@ Per test:
 | Chromium - MacOS 14.5 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Firefox - MacOS 14.5 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
-#### Prosody Element Attributen
+#### Prosody Element Attributen (Testcases TC-02a t/m TC-02v)
 
 | Browser | `rate="x-slow"` | `rate="slow"` | `rate="medium"` | `rate="fast"` | `rate="x-fast"` | `rate="50%"` | `rate="200%"` | `pitch="x-low"` | `pitch="low"` | `pitch="medium"` | `pitch="high"` | `pitch="x-high"` | `pitch="+50%"` | `pitch="-20%"` |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -94,7 +148,7 @@ Per test:
 | Chromium - MacOS 14.5 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Firefox - MacOS 14.5 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
-#### Emphasis Element Attributen
+#### Emphasis Element Attributen (Testcases TC-03a t/m TC-03e)
 
 | Browser | `level="none"` | `level="reduced"` | `level="moderate"` | `level="strong"` | Default (no level) |
 | --- | --- | --- | --- | --- | --- |
@@ -118,7 +172,7 @@ Per test:
 
 **Android 14 Phone**
 
-#### Break Element Attributen
+#### Break Element Attributen (Testcases TC-01a t/m TC-01j)
 
 | Browser | `time="250ms"` | `time="500ms"` | `time="1s"` | `time="2s"` | `strength="none"` | `strength="x-weak"` | `strength="weak"` | `strength="medium"` | `strength="strong"` | `strength="x-strong"` |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -126,7 +180,7 @@ Per test:
 | Edge | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Firefox | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
-#### Prosody Element Attributen
+#### Prosody Element Attributen (Testcases TC-02a t/m TC-02v)
 
 | Browser | `rate="x-slow"` | `rate="slow"` | `rate="medium"` | `rate="fast"` | `rate="x-fast"` | `rate="50%"` | `rate="200%"` | `pitch="x-low"` | `pitch="low"` | `pitch="medium"` | `pitch="high"` | `pitch="x-high"` | `pitch="+50%"` | `pitch="-20%"` |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -140,7 +194,7 @@ Per test:
 | Edge | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Firefox | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 
-#### Emphasis Element Attributen
+#### Emphasis Element Attributen (Testcases TC-03a t/m TC-03e)
 
 | Browser | `level="none"` | `level="reduced"` | `level="moderate"` | `level="strong"` | Default (no level) |
 | --- | --- | --- | --- | --- | --- |
@@ -214,9 +268,22 @@ Voor Thorium Web is een pure client-side implementatie van SSML **niet platform-
 De Web Speech API ondersteunt SSML onvoldoende op Windows-platforms, beperkt op Android, en redelijk op macOS. **Client-side SSML is daardoor geen betrouwbare basis voor brede inzet.** Voor Thorium Web is een **hybride oplossing** het meest toekomstbestendig: SSML waar mogelijk, met slimme fallback-methodes op andere platformen.
 
 
-### 8. Bijlage A - Testscripts (JS)
+### 8. Bijlage A - Testscripts (HTML)
 
-```
+Zie `index.html` voor de volledige testsuite met:
+
+- **Break Element Tests**: 10 buttons voor time/strength variaties
+- **Prosody Element Tests**: 24 buttons voor rate/pitch/volume combinaties
+- **Emphasis Element Tests**: 5 buttons voor alle emphasis levels
+- **Complex Combinations**: 3 realistische scenario's
+
+De HTML-file bevat JavaScript functies die:
+- SSML genereren per testcase
+- Console logging voor timing metingen
+- Visual display van gebruikte SSML-markup
+- Nederlandse tekst (`nl-NL`) voor consistente testen
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 
