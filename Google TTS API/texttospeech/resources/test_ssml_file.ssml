@@ -1,0 +1,8 @@
+<speak>
+  <voice
+  “Drink your coffee, dear,” she said.
+  <break time="300ms"/>
+  <prosody volume="loud" pitch="+2st" rate="slow">
+    “Drink it, and drink it <break time="150ms"/> NOW!”
+  </prosody>
+</speak>
